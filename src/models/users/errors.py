@@ -1,5 +1,5 @@
 class UserError(Exception):
-    def __init(self, message):
+    def __init__(self, message):
         self.message = message
 
 
