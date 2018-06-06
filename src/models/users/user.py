@@ -20,7 +20,7 @@ class User:
         user_data = Database.find_one(UserConstants.COLLECTION, {"email": email})
         if user_data is None:
             raise UserErrors.UserNotExistsError("Your user doesn't exist.")
-        if not password == user_data['password']:
+        if not Utils.check_hashed_password(password, user_data['password']):
             raise UserErrors.IncorrectPasswordError("Your password was wrong.")
 
         return True
